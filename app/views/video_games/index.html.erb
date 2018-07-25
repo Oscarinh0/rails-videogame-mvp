@@ -1,0 +1,37 @@
+<h1>VideoGames#index</h1>
+<p>Find me in app/views/video_games/index.html.erb</p>
+
+<% @games.each_with_index do |game, index| %>
+  <% if index % 3 == 0 && index != 0 %>
+  </div>
+  <%end%>
+  <% if index % 3 == 0 %>
+  <div class="row">
+  <%end%>
+	<div class="col-xs-12 col-sm-4">
+		<div class="card">
+		<h2><%= game.name %></h2>
+		<div class=game-card-image style="background-image: url(<%= game.image_url %>">
+		</div>
+		<div class="game-card-content">
+			<i class="fas fa-star"></i>
+			<%= game.rating%>
+			<i class="fas fa-dollar-sign"></i>
+			<%= game.price%>
+		</div>
+		<div class="card-body">
+			<button type="button" class="btn btn-secondary">
+            <%=link_to("More Info", "http://localhost:3000/video_games/show") %>
+            </button>
+            <button type="button" class="btn btn-primary">
+            <%=link_to "Edit", "http://localhost:3000/video_games/edit"%>
+            </button>
+            <button type="button" class="btn btn-warning">
+            <%= link_to("Remove", "http://localhost:3000/video_games/index") %>
+            </button>
+            
+        </div>
+    </div>
+	</div>
+<% end %>
+
